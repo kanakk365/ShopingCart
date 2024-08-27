@@ -1,16 +1,18 @@
 import React from "react";
-import "./style.css"
-import { useDispatch } from "react-redux";
-import { addToCart } from "../../store/slices/cartSlice";
+import "./style.css";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart , removeFromCart } from "../../store/slices/cartSlice";
 
-function ProductTile({ product }) { 
+function ProductTile({ product }) {
+  const dispatch = useDispatch();
+  const { cart } = useSelector((state) => state);
 
-  const dispatch = useDispatch()
-
-  function handleAddToCart(){
-    dispatch(addToCart(product))
+  function handleAddToCart() {
+    dispatch(addToCart(product));
   }
-
+  function handleRemoveFromCart() {
+    dispatch(removeFromCart(product));
+  }
 
   return (
     <div>
@@ -28,7 +30,18 @@ function ProductTile({ product }) {
           </h1>
         </div>
         <div className="flex items-center justify-center w-full mt-5">
-          <button onClick={handleAddToCart} className=" add  border-2 rounded-lg font-bold p-4">Add to cart</button>
+          <button
+            onClick={
+              cart.some((item) => item.id === product.id)
+                ? handleRemoveFromCart
+                : handleAddToCart
+            }
+            className=" add  border-2 rounded-lg font-bold p-4"
+          >
+            {cart.some((item) => item.id === product.id)
+              ? "Remove From Cart"
+              : "Add to Cart"}
+          </button>
         </div>
       </div>
     </div>

@@ -1,0 +1,53 @@
+.cartContainer {
+  
+  display: flex;
+  padding: 50px  ;
+  flex-direction: row;
+}
+.do {
+  display: flex;
+  justify-content: space-between;
+  gap: 20rem;
+}
+.cartItems {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 50%;
+}
+.sum{
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 1.2rem;
+    margin-top: 12rem;
+}
+.sum h1{
+    font-size: 1.3rem;
+    color: black;
+    font-weight: 500;
+}
+.sum p span{
+    color: #C73659;
+    font-weight: 500;
+}
+
+.empty{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.empty h1{
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.empty button{
+    background-color: #C73659;
+    color: #eeeeee;
+    padding: 10px;
+    border-radius: 5px;
+
+}
